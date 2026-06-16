@@ -15,7 +15,8 @@
 {"@context":"https://schema.org","@type":"Service","name":"Runova","description":"AI Instagram receptionist for UK aesthetics clinics. Custom pricing based on clinic needs. Book a free demo.","provider":{"@type":"Organization","name":"Runova","url":"https://runova.agency"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--purple:#160726;--purple-mid:#27104a;--gold:#d9a94e;--gold-soft:#c49a3c;--ivory:#f7f3ec;--muted:#6b6070;--radius:14px;--transition:0.22s cubic-bezier(.4,0,.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -99,7 +100,6 @@ h1 em{color:var(--gold);font-style:normal}
   h1{font-size:clamp(30px,7.5vw,40px)}
   .page-hero{padding:100px 0 48px}
   .invest-main-sec,.faq-sec,.cta-sec{padding-top:48px;padding-bottom:48px}
-  #runova-cookie-banner{padding-bottom:80px!important}
 }
 @media(max-width:480px){
   .footer-grid{grid-template-columns:1fr}
@@ -231,13 +231,13 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   function getCookie(name){var m=document.cookie.match(new RegExp('(?:^|; )'+name+'=([^;]*)'));return m?decodeURIComponent(m[1]):null;}
   function setCookie(name,value,days){var e=new Date(Date.now()+days*864e5).toUTCString();document.cookie=name+'='+encodeURIComponent(value)+'; expires='+e+'; path=/; SameSite=Lax';}
   function loadGA4(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-CCKG7JC2RR';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-CCKG7JC2RR');}
-  function hideBanner(){var b=document.getElementById('runova-cookie-banner');if(b){b.style.display='none';}}
+  function hideBanner(){var b=document.getElementById('runova-cookie-banner');if(b){b.style.display='none';}document.body.style.paddingBottom='';}
   document.addEventListener('DOMContentLoaded',function(){
     var consent=getCookie(COOKIE_NAME);
     if(consent==='accepted'){loadGA4();return;}
     if(consent==='declined'){return;}
     var banner=document.getElementById('runova-cookie-banner');
-    if(banner){banner.style.display='block';}
+    if(banner){banner.style.display='block';document.body.style.paddingBottom=banner.offsetHeight+'px';window.addEventListener('resize',function(){if(banner.style.display!=='none'){document.body.style.paddingBottom=banner.offsetHeight+'px';}});}
     var accept=document.getElementById('runova-cookie-accept');
     var decline=document.getElementById('runova-cookie-decline');
     if(accept){accept.addEventListener('click',function(){setCookie(COOKIE_NAME,'accepted',365);loadGA4();hideBanner();});}

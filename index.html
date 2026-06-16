@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Never miss another Instagram enquiry. Runova replies in seconds, 24/7, in your clinic's own voice.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -135,7 +135,7 @@ a{color:inherit;text-decoration:none}
 .dmk-sidebar{width:200px;flex-shrink:0;background:#1c0d2e;display:flex;flex-direction:column}
 .dmk-sb-top{padding:18px 18px 16px;border-bottom:1px solid rgba(255,255,255,0.07)}
 .dmk-logo{font-family:'DM Serif Display',serif;font-size:17px;color:#f7f3ec;display:flex;align-items:center;gap:8px}
-.dmk-logo .lbox{width:28px;height:28px;background:var(--gold);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--purple);font-weight:800}
+.dmk-logo .lbox{width:28px;height:28px;background:var(--gold);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--purple);font-weight:700}
 .dmk-sb-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,243,236,0.3);padding:16px 18px 8px;font-weight:600}
 .dmk-nav-item{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;color:rgba(247,243,236,0.55);cursor:pointer;transition:background .15s,color .15s;border-right:2px solid transparent;user-select:none}
 .dmk-nav-item:hover{background:rgba(255,255,255,0.04);color:rgba(247,243,236,0.85)}
@@ -393,11 +393,17 @@ a{color:inherit;text-decoration:none}
   .wrap{padding:0 16px}
   .sec,.dash-sec,.stats-sec,.features-sec,.invest-sec,.trust-sec,.cta-sec,.book-sec{padding-top:48px;padding-bottom:48px}
   .dmk-sb-top{display:none}
-  .dmk-table-head{display:grid;grid-template-columns:1.5fr 1fr 0.7fr 0.8fr 1.3fr;padding-left:10px;padding-right:10px}
-  .dmk-table-row{grid-template-columns:1.5fr 1fr 0.7fr 0.8fr 1.3fr;gap:8px;padding-left:10px;padding-right:10px}
-  .dmk-table-head .dmk-th:nth-child(4),.dmk-table-head .dmk-th:nth-child(7){display:none}
+  /* Leads table → stacked cards so nothing overflows or clips */
+  .dmk-leads-table{border:none;background:transparent;overflow:visible;display:flex;flex-direction:column;gap:10px}
+  .dmk-table-head{display:none}
+  .dmk-table-row{grid-template-columns:1fr auto;grid-template-areas:'handle value' 'stage temp' 'msg msg';gap:6px 10px;align-items:center;background:#fff;border:1px solid #e8e0d8;border-radius:12px;padding:13px 14px}
+  .dmk-table-row:last-child{border-bottom:1px solid #e8e0d8}
+  .dmk-table-row>.dmk-handle{grid-area:handle}
+  .dmk-table-row>div:nth-child(2){grid-area:stage}
+  .dmk-table-row>div:nth-child(3){grid-area:temp;justify-self:end}
+  .dmk-table-row>.dmk-value{grid-area:value;justify-self:end}
+  .dmk-table-row>.dmk-lastmsg{grid-area:msg;white-space:normal;overflow:visible}
   .dmk-sentiment,.dmk-dash{display:none}
-  #runova-cookie-banner{padding-bottom:80px!important}
 }
 @media(max-width:480px){
   .hero h1{font-size:clamp(32px,8.5vw,40px)}
@@ -1153,13 +1159,13 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   function getCookie(name){var m=document.cookie.match(new RegExp('(?:^|; )'+name+'=([^;]*)'));return m?decodeURIComponent(m[1]):null;}
   function setCookie(name,value,days){var e=new Date(Date.now()+days*864e5).toUTCString();document.cookie=name+'='+encodeURIComponent(value)+'; expires='+e+'; path=/; SameSite=Lax';}
   function loadGA4(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-CCKG7JC2RR';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-CCKG7JC2RR');}
-  function hideBanner(){var b=document.getElementById('runova-cookie-banner');if(b){b.style.display='none';}}
+  function hideBanner(){var b=document.getElementById('runova-cookie-banner');if(b){b.style.display='none';}document.body.style.paddingBottom='';}
   document.addEventListener('DOMContentLoaded',function(){
     var consent=getCookie(COOKIE_NAME);
     if(consent==='accepted'){loadGA4();return;}
     if(consent==='declined'){return;}
     var banner=document.getElementById('runova-cookie-banner');
-    if(banner){banner.style.display='block';}
+    if(banner){banner.style.display='block';document.body.style.paddingBottom=banner.offsetHeight+'px';window.addEventListener('resize',function(){if(banner.style.display!=='none'){document.body.style.paddingBottom=banner.offsetHeight+'px';}});}
     var accept=document.getElementById('runova-cookie-accept');
     var decline=document.getElementById('runova-cookie-decline');
     if(accept){accept.addEventListener('click',function(){setCookie(COOKIE_NAME,'accepted',365);loadGA4();hideBanner();});}
