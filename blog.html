@@ -87,6 +87,22 @@ h1 em{color:var(--gold);font-style:normal}
 @media(max-width:760px){.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:none}
+
+/* ── MOBILE OPTIMISATION PASS ── */
+@media(max-width:720px){
+  .nav-links.show a{width:100%;padding:12px 0;border-bottom:1px solid rgba(247,243,236,0.1)}
+  .nav-links.show a:last-child{border-bottom:none}
+}
+@media(max-width:640px){
+  .wrap{padding:0 16px}
+  h1{font-size:clamp(30px,7.5vw,40px)}
+  .page-hero{padding:100px 0 48px}
+  .blog-sec,.newsletter-sec{padding-top:48px;padding-bottom:48px}
+  #runova-cookie-banner{padding-bottom:80px!important}
+}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
