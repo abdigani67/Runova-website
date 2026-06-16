@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CCKG7JC2RR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-CCKG7JC2RR');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Investment — Runova | Tailored AI Receptionist for UK Aesthetics Clinics</title>
@@ -206,6 +198,36 @@ h1 em{color:var(--gold);font-style:normal}
 function toggleFaq(el){el.parentElement.classList.toggle('open')}
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+<!-- GDPR cookie consent banner -->
+<div id="runova-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#160726;color:#ffffff;font-family:'DM Sans',sans-serif;padding:20px 24px;box-shadow:0 -2px 24px rgba(0,0,0,0.35);">
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+    <p style="margin:0;font-size:15px;line-height:1.5;flex:1 1 320px;">We use cookies to understand how visitors use our site and improve your experience. By clicking Accept, you consent to our use of analytics cookies.</p>
+    <div style="display:flex;gap:12px;flex-shrink:0;">
+      <button id="runova-cookie-decline" type="button" style="background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.5);border-radius:6px;padding:10px 22px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;">Decline</button>
+      <button id="runova-cookie-accept" type="button" style="background:#d9a94e;color:#160726;border:none;border-radius:6px;padding:10px 22px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var COOKIE_NAME='runova_analytics_consent';
+  function getCookie(name){var m=document.cookie.match(new RegExp('(?:^|; )'+name+'=([^;]*)'));return m?decodeURIComponent(m[1]):null;}
+  function setCookie(name,value,days){var e=new Date(Date.now()+days*864e5).toUTCString();document.cookie=name+'='+encodeURIComponent(value)+'; expires='+e+'; path=/; SameSite=Lax';}
+  function loadGA4(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-CCKG7JC2RR';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-CCKG7JC2RR');}
+  function hideBanner(){var b=document.getElementById('runova-cookie-banner');if(b){b.style.display='none';}}
+  document.addEventListener('DOMContentLoaded',function(){
+    var consent=getCookie(COOKIE_NAME);
+    if(consent==='accepted'){loadGA4();return;}
+    if(consent==='declined'){return;}
+    var banner=document.getElementById('runova-cookie-banner');
+    if(banner){banner.style.display='block';}
+    var accept=document.getElementById('runova-cookie-accept');
+    var decline=document.getElementById('runova-cookie-decline');
+    if(accept){accept.addEventListener('click',function(){setCookie(COOKIE_NAME,'accepted',365);loadGA4();hideBanner();});}
+    if(decline){decline.addEventListener('click',function(){setCookie(COOKIE_NAME,'declined',365);hideBanner();});}
+  });
+})();
 </script>
 </body>
 </html>
