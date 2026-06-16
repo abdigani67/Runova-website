@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog — Runova | AI for Aesthetics Clinics | Instagram DM Automation</title>
+<meta name="description" content="Guides, insights and honest advice for UK aesthetics clinic owners on Instagram DM management, lead conversion, and AI automation for booking enquiries.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://runova.agency/blog.html">
+<meta property="og:title" content="Runova Blog — AI & Instagram for Aesthetics Clinics">
+<meta property="og:description" content="Practical guides for UK aesthetics clinics on recovering lost bookings, managing Instagram DMs, and using AI to grow.">
+<meta property="og:url" content="https://runova.agency/blog.html">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--purple:#160726;--purple-mid:#27104a;--gold:#d9a94e;--gold-soft:#c49a3c;--ivory:#f7f3ec;--muted:#6b6070;--radius:14px;--transition:0.22s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--purple);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(22,7,38,0.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(217,169,78,0.15)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px;max-width:1100px;margin:0 auto;padding:0 24px}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:22px;color:#f7f3ec;letter-spacing:-0.02em}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:rgba(247,243,236,0.72);font-size:14.5px;font-weight:500;transition:color var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:#f7f3ec}
+.nav-cta{background:var(--gold)!important;color:var(--purple)!important;padding:9px 22px;border-radius:8px;font-weight:700;font-size:14px!important}
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.nav-hamburger span{width:22px;height:2px;background:#f7f3ec;border-radius:2px;display:block}
+@media(max-width:720px){.nav-links{display:none;position:fixed;top:66px;left:0;right:0;background:rgba(22,7,38,0.98);flex-direction:column;align-items:flex-start;padding:24px;gap:20px}.nav-links.show{display:flex}.nav-hamburger{display:flex}}
+.page-hero{background:linear-gradient(145deg,var(--purple) 0%,#1e0b38 100%);padding:130px 0 80px;text-align:center}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+h1{font-family:'DM Serif Display',serif;font-size:clamp(34px,5vw,56px);color:#f7f3ec;line-height:1.08;letter-spacing:-0.02em;margin-bottom:18px}
+h1 em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:18px;color:rgba(247,243,236,0.7);max-width:500px;margin:0 auto;line-height:1.65}
+
+/* BLOG GRID */
+.blog-sec{padding:80px 0}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:48px}
+.blog-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(22,7,38,0.08);transition:box-shadow var(--transition),transform var(--transition);display:flex;flex-direction:column}
+.blog-card:hover{box-shadow:0 12px 40px rgba(22,7,38,0.12);transform:translateY(-3px)}
+.blog-card-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:48px}
+.blog-card-body{padding:24px;flex:1;display:flex;flex-direction:column}
+.blog-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.blog-cat{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-soft);background:rgba(217,169,78,0.1);padding:3px 10px;border-radius:20px}
+.blog-date{font-size:12px;color:var(--muted)}
+.blog-card h2{font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:10px;line-height:1.25;color:var(--purple)}
+.blog-card p{font-size:14.5px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:20px}
+.blog-card a.read-more{font-size:14px;font-weight:600;color:var(--gold-soft);display:flex;align-items:center;gap:6px;margin-top:auto}
+.blog-card a.read-more::after{content:'→';transition:transform var(--transition)}
+.blog-card:hover a.read-more::after{transform:translateX(4px)}
+.blog-card.featured{grid-column:span 3;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.blog-card.featured .blog-card-img{height:100%;min-height:260px;font-size:72px}
+@media(max-width:900px){.blog-card.featured{grid-column:span 2;grid-template-columns:1fr}}
+@media(max-width:700px){.blog-grid{grid-template-columns:1fr}.blog-card.featured{grid-column:span 1}}
+
+/* NEWSLETTER */
+.newsletter-sec{background:var(--purple);padding:64px 0;text-align:center}
+.newsletter-box{max-width:500px;margin:0 auto}
+.newsletter-box h2{font-family:'DM Serif Display',serif;font-size:clamp(24px,3vw,34px);color:#f7f3ec;margin-bottom:12px}
+.newsletter-box p{font-size:15px;color:rgba(247,243,236,0.65);margin-bottom:28px}
+.newsletter-form{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.newsletter-form input{flex:1;min-width:200px;background:rgba(247,243,236,0.08);border:1.5px solid rgba(247,243,236,0.2);border-radius:10px;padding:13px 16px;color:#f7f3ec;font-size:15px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color var(--transition)}
+.newsletter-form input::placeholder{color:rgba(247,243,236,0.35)}
+.newsletter-form input:focus{border-color:var(--gold)}
+.btn-gold{background:var(--gold);color:var(--purple);font-weight:700;padding:13px 24px;border-radius:10px;font-size:15px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background var(--transition)}
+.btn-gold:hover{background:#e8b84e}
+
+/* CATEGORIES */
+.cat-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.cat-pill{font-size:13px;font-weight:600;padding:7px 16px;border-radius:20px;border:1.5px solid rgba(22,7,38,0.15);cursor:pointer;transition:var(--transition)}
+.cat-pill:hover,.cat-pill.active{background:var(--purple);color:#f7f3ec;border-color:var(--purple)}
+
+/* FOOTER */
+.footer{background:var(--purple);color:rgba(247,243,236,0.6);padding:64px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.footer-brand .logo{font-family:'DM Serif Display',serif;font-size:22px;color:#f7f3ec;margin-bottom:14px}
+.footer-brand .logo span{color:var(--gold)}
+.footer-brand p{font-size:14px;line-height:1.75;max-width:220px}
+.footer-col h4{color:#f7f3ec;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;color:rgba(247,243,236,0.55);margin-bottom:10px;transition:color var(--transition)}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(247,243,236,0.08);padding-top:24px;font-size:13px;color:rgba(247,243,236,0.4)}
+@media(max-width:760px){.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Runova<span>.</span></a>
+    <div class="nav-links" id="navLinks" onclick="this.classList.remove('show')">
+      <a href="/">Home</a>
+      <a href="/how-it-works.html">How it works</a>
+      <a href="/pricing.html">Investment</a>
+      <a href="/blog.html" class="active">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/#book" class="nav-cta">Book a demo</a>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('show')"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">The Runova blog</div>
+    <h1>Practical guides for<br><em>aesthetics clinic</em> owners.</h1>
+    <p class="hero-sub">No jargon. No hype. Just honest advice on growing your clinic, managing Instagram, and using AI the right way.</p>
+  </div>
+</header>
+
+<main>
+<section class="blog-sec">
+  <div class="wrap">
+    <div class="cat-bar" id="catBar">
+      <button class="cat-pill active" onclick="filterCat(this,'all')">All posts</button>
+      <button class="cat-pill" onclick="filterCat(this,'instagram')">Instagram &amp; DMs</button>
+      <button class="cat-pill" onclick="filterCat(this,'ai')">AI for clinics</button>
+      <button class="cat-pill" onclick="filterCat(this,'booking')">Booking &amp; revenue</button>
+      <button class="cat-pill" onclick="filterCat(this,'compliance')">Compliance</button>
+    </div>
+
+    <div class="blog-grid">
+
+      <!-- FEATURED POST -->
+      <article class="blog-card featured reveal" data-cat="instagram" itemscope itemtype="https://schema.org/BlogPosting">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#160726,#27104a)">💬</div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Instagram & DMs</span>
+            <span class="blog-date" itemprop="datePublished" content="2026-06-01">June 2026</span>
+          </div>
+          <h2 itemprop="headline">Why aesthetics clinics lose 73% of their Instagram enquiries and how to stop it</h2>
+          <p itemprop="description">Most aesthetics clinic owners don't know how many enquiries they're missing, because the people who didn't get a reply never come back to tell you. Here's what the data says, and what you can do about it.</p>
+          <p>The pattern is consistent: someone DMs a clinic at 8pm asking about lip fillers. Nobody replies until the next morning. By that point, the patient has already booked somewhere else, or gone quiet because they don't want to feel like a bother. The clinic never knows it happened.</p>
+          <p>The solution isn't working longer hours. It's answering faster, which is exactly what an AI receptionist does.</p>
+          <a href="blog-instagram-enquiries.html" class="read-more" itemprop="url">Read the full guide</a>
+        </div>
+      </article>
+
+      <!-- POST 2 -->
+      <article class="blog-card reveal" data-cat="ai" itemscope itemtype="https://schema.org/BlogPosting">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#1e0b38,#2d1060)">🤖</div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="blog-cat">AI for clinics</span>
+            <span class="blog-date" itemprop="datePublished" content="2026-05-20">May 2026</span>
+          </div>
+          <h2 itemprop="headline">Will customers know it's AI? The honest answer for aesthetics clinics.</h2>
+          <p>The most common question we get. The honest answer might surprise you, and it says more more about what customers actually care about than it does about AI.</p>
+          <a href="#coming-soon" class="read-more" onclick="comingSoon(event)">Read more</a>
+        </div>
+      </article>
+
+      <!-- POST 3 -->
+      <article class="blog-card reveal" data-cat="booking" itemscope itemtype="https://schema.org/BlogPosting">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#0e1a2e,#1a3050)">📊</div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Booking & revenue</span>
+            <span class="blog-date" itemprop="datePublished" content="2026-05-10">May 2026</span>
+          </div>
+          <h2 itemprop="headline">The £450 test: how to calculate if an AI receptionist pays for itself at your clinic.</h2>
+          <p>Before committing to any monthly service, you should run the maths. Here's the simple calculation that tells you whether Runova makes financial sense for your clinic size.</p>
+          <a href="#coming-soon" class="read-more" onclick="comingSoon(event)">Read more</a>
+        </div>
+      </article>
+
+      <!-- POST 4 -->
+      <article class="blog-card reveal" data-cat="compliance" itemscope itemtype="https://schema.org/BlogPosting">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">⚖️</div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Compliance</span>
+            <span class="blog-date" itemprop="datePublished" content="2026-04-28">April 2026</span>
+          </div>
+          <h2 itemprop="headline">GDPR and Instagram DMs: what UK aesthetics clinics actually need to know.</h2>
+          <p>Patient enquiries via Instagram are personal data. Here's what ICO registration means, what a Data Processing Agreement does, and what you're responsible for as a clinic owner.</p>
+          <a href="#coming-soon" class="read-more" onclick="comingSoon(event)">Read more</a>
+        </div>
+      </article>
+
+      <!-- POST 5 -->
+      <article class="blog-card reveal" data-cat="booking" itemscope itemtype="https://schema.org/BlogPosting">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#2d0a1e,#4a0f30)">💷</div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Booking & revenue</span>
+            <span class="blog-date" itemprop="datePublished" content="2026-04-15">April 2026</span>
+          </div>
+          <h2 itemprop="headline">Should you put prices on your Instagram? The case for being upfront.</h2>
+          <p>Some clinics hide their prices to encourage enquiries. Others share them openly. Here's the data on which approach converts more browsers into booked appointments.</p>
+          <a href="#coming-soon" class="read-more" onclick="comingSoon(event)">Read more</a>
+        </div>
+      </article>
+
+      <!-- POST 6 -->
+      <article class="blog-card reveal" data-cat="instagram" itemscope itemtype="https://schema.org/BlogPosting">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#0a1628,#112240)">📱</div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Instagram & DMs</span>
+            <span class="blog-date" itemprop="datePublished" content="2026-04-05">April 2026</span>
+          </div>
+          <h2 itemprop="headline">Instagram DM best practices for aesthetics clinics in 2026.</h2>
+          <p>From response time to tone to handling off-topic messages: a complete guide to managing your clinic's Instagram inbox professionally, with or without AI.</p>
+          <a href="#coming-soon" class="read-more" onclick="comingSoon(event)">Read more</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-sec">
+  <div class="wrap">
+    <div class="newsletter-box reveal">
+      <h2>Get new guides in your inbox.</h2>
+      <p>Practical advice for aesthetics clinic owners, once or twice a month. No spam.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@clinic.co.uk">
+        <button class="btn-gold">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo">Runova<span>.</span></div><p>AI Instagram receptionist for UK aesthetics clinics.</p></div>
+      <div class="footer-col"><h4>Product</h4><a href="/how-it-works.html">How it works</a><a href="/pricing.html">Investment</a><a href="/#book">Book a demo</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="mailto:runova.ai3@gmail.com">Contact</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="https://runova-dpa.tiiny.site" target="_blank">DPA</a><a href="/">Privacy</a><a href="/">Terms</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Runova, Mr Abdigani Mohamed. ICO registered. Bristol, UK.</p></div>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+function filterCat(btn, cat){
+  document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.blog-grid article').forEach(card=>{
+    if(cat==='all'||card.dataset.cat===cat){
+      card.style.display='';
+    } else {
+      card.style.display='none';
+    }
+  });
+}
+
+function comingSoon(e){
+  e.preventDefault();
+  const btn=e.currentTarget;
+  const orig=btn.textContent;
+  btn.textContent='Coming soon';
+  btn.style.color='var(--muted)';
+  setTimeout(()=>{btn.textContent=orig;btn.style.color='';},2000);
+}
+</script>
+</body>
+</html>
