@@ -379,6 +379,16 @@ a{color:inherit;text-decoration:none}
   .nav-links.show a{width:100%;padding:12px 0;border-bottom:1px solid rgba(247,243,236,0.1)}
   .nav-links.show a:last-child{border-bottom:none}
 }
+@media(max-width:768px){
+  /* Issue 2 — let the dashboard expand instead of clipping at the bottom */
+  .dash-mock{height:auto;min-height:auto;position:relative}
+  .dmk-main{height:auto}
+  .dmk-content{overflow-y:visible}
+  /* Issue 1 — scrollable, snapping tab row with smaller tabs + right-edge fade */
+  .dmk-sidebar{-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}
+  .dmk-nav-item{font-size:12px;padding:8px 12px;scroll-snap-align:start}
+  .dash-mock::after{content:'';position:absolute;top:0;right:0;width:48px;height:56px;background:linear-gradient(to right,rgba(217,169,78,0),rgba(217,169,78,0.55));pointer-events:none;z-index:2}
+}
 @media(max-width:640px){
   .wrap{padding:0 16px}
   .sec,.dash-sec,.stats-sec,.features-sec,.invest-sec,.trust-sec,.cta-sec,.book-sec{padding-top:48px;padding-bottom:48px}
