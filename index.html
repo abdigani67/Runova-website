@@ -993,9 +993,16 @@ function playDM(idx){
   const b=document.getElementById('dmBody');
   if(!b)return;
 
-  // All messages played - pause 2.8s then restart
+  // All messages played - show a static note once, no restart
   if(idx>=DMS.length){
-    dmTimeout=setTimeout(()=>startDMLoop(), 2800);
+    dmTimeout=setTimeout(()=>{
+      const note=document.createElement('div');
+      note.className='demo-footer-note';
+      note.style.marginTop='8px';
+      note.textContent='Your AI receptionist handles this automatically, 24 hours a day.';
+      b.appendChild(note);
+      b.scrollTop=b.scrollHeight;
+    }, 1000);
     return;
   }
 
