@@ -92,13 +92,18 @@ a{color:inherit;text-decoration:none}
 .mc-sub{font-size:10px;color:rgba(247,243,236,0.4)}
 .mc-live{display:flex;align-items:center;gap:4px;font-size:9.5px;font-weight:600;color:#4ade80;background:rgba(74,222,128,0.1);padding:3px 7px;border-radius:20px;flex-shrink:0}
 .mc-live .dot{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
-.mc-body{padding:14px;display:flex;flex-direction:column;gap:9px;flex:1}
+.mc-body{padding:14px;display:flex;flex-direction:column;gap:9px;flex:1;min-height:208px}
 .mc-msg{display:flex}
 .mc-msg.ai{justify-content:flex-end}
 .mc-bubble{max-width:88%;padding:9px 12px;border-radius:14px;font-size:12.5px;line-height:1.45}
 .mc-msg.user .mc-bubble{background:rgba(247,243,236,0.1);color:#f7f3ec;border-bottom-left-radius:4px}
 .mc-msg.ai .mc-bubble{background:var(--purple-mid);color:#f7f3ec;border-bottom-right-radius:4px}
 .mc-foot{font-size:10.5px;color:rgba(247,243,236,0.4);text-align:center;padding:10px 14px;border-top:1px solid rgba(247,243,236,0.06)}
+.mc-typing{display:flex;gap:4px;align-items:center;padding:9px 12px;background:rgba(247,243,236,0.08);border-radius:14px;width:fit-content}
+.mc-typing span{width:6px;height:6px;border-radius:50%;background:rgba(247,243,236,0.5);animation:bounce 1.2s infinite}
+.mc-typing span:nth-child(2){animation-delay:.2s}
+.mc-typing span:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
 @media(max-width:980px){.hero-inner{grid-template-columns:1fr;gap:48px}}
 @media(max-width:420px){.hero-cards{grid-template-columns:1fr}}
 
@@ -243,10 +248,7 @@ a{color:inherit;text-decoration:none}
             </div>
             <div class="mc-live"><span class="dot"></span>Replying live</div>
           </div>
-          <div class="mc-body">
-            <div class="mc-msg user"><div class="mc-bubble">Hi, how much are lip fillers?</div></div>
-            <div class="mc-msg ai"><div class="mc-bubble">Hey! Lip fillers start from £180. They take about 30 minutes. Want me to send the booking link? 💋</div></div>
-          </div>
+          <div class="mc-body" id="igChat"></div>
           <div class="mc-foot">Your AI receptionist handles this automatically. 24 hours a day.</div>
         </div>
 
@@ -262,10 +264,7 @@ a{color:inherit;text-decoration:none}
             </div>
             <div class="mc-live"><span class="dot"></span>Replying live</div>
           </div>
-          <div class="mc-body">
-            <div class="mc-msg user"><div class="mc-bubble">Is the Golf still available?</div></div>
-            <div class="mc-msg ai"><div class="mc-bubble">Yes! The 2021 VW Golf is available — 22k miles, petrol, £19,995. Want to book a viewing? 🚗</div></div>
-          </div>
+          <div class="mc-body" id="waChat"></div>
           <div class="mc-foot">Your AI sales assistant handles this automatically. 24 hours a day.</div>
         </div>
 
@@ -458,6 +457,49 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.qu
 // Scroll reveal
 const obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+
+// ── Hero chat demos — type messages in, one by one (plays once) ──────────
+function runChat(bodyId,rowClass,bubbleClass,typingClass,msgs){
+  var b=document.getElementById(bodyId);
+  if(!b)return;
+  b.innerHTML='';
+  var i=0;
+  function add(m){
+    var row=document.createElement('div');
+    row.className=rowClass+' '+m.role;
+    row.innerHTML='<div class="'+bubbleClass+'">'+m.text+'</div>';
+    b.appendChild(row);b.scrollTop=b.scrollHeight;
+  }
+  function next(){
+    if(i>=msgs.length)return;
+    var m=msgs[i];
+    var pause=i===0?500:(m.delay||1100);
+    setTimeout(function(){
+      if(m.role==='ai'){
+        var t=document.createElement('div');
+        t.className=rowClass+' ai';
+        t.innerHTML='<div class="'+typingClass+'"><span></span><span></span><span></span></div>';
+        b.appendChild(t);b.scrollTop=b.scrollHeight;
+        setTimeout(function(){t.remove();add(m);i++;next();},1100);
+      }else{add(m);i++;next();}
+    },pause);
+  }
+  next();
+}
+setTimeout(function(){
+  runChat('igChat','mc-msg','mc-bubble','mc-typing',[
+    {role:'user',text:'Hi, how much are lip fillers?'},
+    {role:'ai',  text:'Hey! Lip fillers start from £180. They take about 30 minutes 💋'},
+    {role:'user',text:'Do you have anything this week?',delay:1500},
+    {role:'ai',  text:"We do! I'll send you the booking link so you can grab a slot ✨"}
+  ]);
+  runChat('waChat','mc-msg','mc-bubble','mc-typing',[
+    {role:'user',text:'Is the Golf still available?'},
+    {role:'ai',  text:'Yes! The 2021 VW Golf is available — 22k miles, £19,995. Want to book a viewing? 🚗'},
+    {role:'user',text:'Can I come Saturday?',delay:1500},
+    {role:'ai',  text:"Absolutely — here's the booking link. See you Saturday! 👍"}
+  ]);
+},600);
 </script>
 
 <!-- GDPR cookie consent banner -->

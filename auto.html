@@ -93,7 +93,12 @@ a{color:inherit;text-decoration:none}
 .demo-wa-sub{font-size:11px;color:rgba(247,243,236,0.4)}
 .demo-live-pill{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:#4ade80;background:rgba(74,222,128,0.1);padding:4px 10px;border-radius:20px}
 .demo-live-pill .dot{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
-.demo-body{padding:20px;display:flex;flex-direction:column;gap:12px}
+.demo-body{padding:20px;display:flex;flex-direction:column;gap:12px;min-height:340px}
+.wa-typing{display:flex;gap:4px;align-items:center;padding:10px 14px;background:rgba(247,243,236,0.08);border-radius:14px;width:fit-content}
+.wa-typing span{width:6px;height:6px;border-radius:50%;background:rgba(247,243,236,0.5);animation:bounce 1.2s infinite}
+.wa-typing span:nth-child(2){animation-delay:.2s}
+.wa-typing span:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
 .wa-msg{display:flex}
 .wa-msg.ai{justify-content:flex-end}
 .wa-bubble{max-width:80%;padding:11px 15px;border-radius:16px;font-size:14px;line-height:1.5}
@@ -328,13 +333,7 @@ a{color:inherit;text-decoration:none}
               <div class="demo-live-pill"><span class="dot"></span>Replying live</div>
             </div>
           </div>
-          <div class="demo-body">
-            <div class="wa-msg user"><div class="wa-bubble">Is the Golf still available?</div></div>
-            <div class="wa-msg ai"><div class="wa-bubble">Yes! The 2021 VW Golf is available — 22,000 miles, petrol, manual, £19,995. Want to book a viewing? 🚗</div></div>
-            <div class="wa-msg user"><div class="wa-bubble">Can I come Saturday?</div></div>
-            <div class="wa-msg ai"><div class="wa-bubble">Absolutely — here's the booking link to pick your slot. See you Saturday! 👍</div></div>
-            <div class="wa-msg user"><div class="wa-bubble">Perfect, thanks</div></div>
-          </div>
+          <div class="demo-body" id="waChat"></div>
           <div class="demo-card-footer">
             <div class="demo-footer-note">Your AI sales assistant handles this automatically. 24 hours a day.</div>
           </div>
@@ -751,6 +750,45 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.qu
 // Scroll reveal
 const obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+
+// ── Hero WhatsApp demo — type messages in, one by one (plays once) ───────
+function runChat(bodyId,rowClass,bubbleClass,typingClass,msgs){
+  var b=document.getElementById(bodyId);
+  if(!b)return;
+  b.innerHTML='';
+  var i=0;
+  function add(m){
+    var row=document.createElement('div');
+    row.className=rowClass+' '+m.role;
+    row.innerHTML='<div class="'+bubbleClass+'">'+m.text+'</div>';
+    b.appendChild(row);b.scrollTop=b.scrollHeight;
+  }
+  function next(){
+    if(i>=msgs.length)return;
+    var m=msgs[i];
+    var pause=i===0?500:(m.delay||1100);
+    setTimeout(function(){
+      if(m.role==='ai'){
+        var t=document.createElement('div');
+        t.className=rowClass+' ai';
+        t.innerHTML='<div class="'+typingClass+'"><span></span><span></span><span></span></div>';
+        b.appendChild(t);b.scrollTop=b.scrollHeight;
+        setTimeout(function(){t.remove();add(m);i++;next();},1100);
+      }else{add(m);i++;next();}
+    },pause);
+  }
+  next();
+}
+setTimeout(function(){
+  runChat('waChat','wa-msg','wa-bubble','wa-typing',[
+    {role:'user',text:'Is the Golf still available?'},
+    {role:'ai',  text:'Yes! The 2021 VW Golf is available — 22,000 miles, petrol, manual, £19,995. Want to book a viewing? 🚗'},
+    {role:'user',text:'Can I come Saturday?',delay:1500},
+    {role:'ai',  text:"Absolutely — here's the booking link to pick your slot. See you Saturday! 👍"},
+    {role:'user',text:'Perfect, thanks',delay:1400},
+    {role:'ai',  text:'Anytime! The team will have it ready for you 🚗'}
+  ]);
+},600);
 </script>
 
 <!-- GDPR cookie consent banner -->
