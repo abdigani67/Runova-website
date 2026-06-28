@@ -703,7 +703,7 @@ a{color:inherit;text-decoration:none}
                     <div class="dmk-msg-time">Customer · 14:21</div>
                   </div>
                   <div class="dmk-msg-row ai-row">
-                    <div class="dmk-msg-bubble">Hey! Lip fillers start from £180 and go up to £300 depending on the look you're going for. Takes about 45 mins. Want me to send the booking link? ✨</div>
+                    <div class="dmk-msg-bubble">Lip fillers start from £180 and go up to £300 depending on the look you are going for. The appointment takes around 45 minutes. Would you like me to send the booking link?</div>
                     <div class="dmk-msg-time">AI · 14:21</div>
                   </div>
                   <div class="dmk-msg-row">
@@ -711,7 +711,7 @@ a{color:inherit;text-decoration:none}
                     <div class="dmk-msg-time">Customer · 14:23</div>
                   </div>
                   <div class="dmk-msg-row ai-row">
-                    <div class="dmk-msg-bubble">We don't have visibility of the calendar here, but if you head to bookings.novaesthetics.co.uk the team will confirm what's available for you ✨</div>
+                    <div class="dmk-msg-bubble">We do not have visibility of the calendar here, but if you head to bookings.novaesthetics.co.uk the team will confirm what is available for you.</div>
                     <div class="dmk-msg-time">AI · 14:23</div>
                   </div>
                   <div class="dmk-msg-row">
@@ -973,9 +973,9 @@ const BOOKING_WEBHOOK='https://hook.eu1.make.com/l58ee7r635b48d1gqn1y8147qvk02rh
 // ── Customer view: looping DM demo ──────────────────────────────────────
 const DMS=[
   {role:'user',  text:'Hi, how much are lip fillers?'},
-  {role:'ai',    text:'Hey! Lip fillers start from £180. They usually take about 30 minutes and look amazing. Want me to send you the booking link? 💋', delay:1400},
+  {role:'ai',    text:'Lip fillers start from £180 and usually take around 30 minutes. Would you like me to send you the booking link?', delay:1400},
   {role:'user',  text:'Yes please! Do you have anything this week?', delay:2200},
-  {role:'ai',    text:'Head to bookings.novaesthetics.co.uk and the team will confirm your slot. They\'re usually pretty flexible 😊', delay:1600},
+  {role:'ai',    text:'Please head to bookings.novaesthetics.co.uk and the team will confirm your slot.', delay:1600},
 ];
 
 let dmTimeout=null;
@@ -1066,9 +1066,9 @@ const convData={
     stageBadge:'<span class="dmk-badge in-chat">In Chat</span>',
     msgs:[
       {role:'user',text:'hi, how much are lip fillers? 💋',time:'14:21'},
-      {role:'ai',text:"Hey! Lip fillers start from £180 and go up to £300 depending on the look you're going for. Takes about 45 mins. Want me to send the booking link? ✨",time:'14:21'},
+      {role:'ai',text:"Lip fillers start from £180 and go up to £300 depending on the look you are going for. The appointment takes around 45 minutes. Would you like me to send the booking link?",time:'14:21'},
       {role:'user',text:'yes please! do you have anything this week?',time:'14:23'},
-      {role:'ai',text:"We don't have visibility of the calendar here, but if you head to bookings.novaesthetics.co.uk the team will confirm what's available for you ✨",time:'14:23'},
+      {role:'ai',text:"We do not have visibility of the calendar here, but if you head to bookings.novaesthetics.co.uk the team will confirm what is available for you.",time:'14:23'},
       {role:'user',text:'what bookings do u have?',time:'14:54'},
     ]
   },
@@ -1078,9 +1078,9 @@ const convData={
     stageBadge:'<span class="dmk-badge with-staff">With Staff</span>',
     msgs:[
       {role:'user',text:'hi can I book for lip fillers?',time:'11:02'},
-      {role:'ai',text:"Of course! Lip fillers start from £180. I'll send you our booking link and the team will sort you out 💋",time:'11:02'},
+      {role:'ai',text:"Of course. Lip fillers start from £180. I will send you our booking link and the team will assist you.",time:'11:02'},
       {role:'user',text:'amazing thank you!',time:'11:05'},
-      {role:'ai',text:"Amazing, you're all booked in — the team will be in touch to confirm your slot. See you soon! 🌟",time:'11:06'},
+      {role:'ai',text:"You are all booked in. The team will be in touch to confirm your slot.",time:'11:06'},
     ]
   },
   '@glowupcardiff':{
@@ -1089,9 +1089,9 @@ const convData={
     stageBadge:'<span class="dmk-badge in-chat">In Chat</span>',
     msgs:[
       {role:'user',text:'how much is botox?',time:'09:34'},
-      {role:'ai',text:'Anti-wrinkle injections start from £150 for a single area and up to £250 for multiple areas. Results in 3–14 days and last around 3–4 months 💉',time:'09:34'},
+      {role:'ai',text:'Anti-wrinkle injections start from £150 for a single area and up to £250 for multiple areas. Results appear in 3 to 14 days and last around 3 to 4 months.',time:'09:34'},
       {role:'user',text:'ok thanks, ill think about it',time:'09:40'},
-      {role:'ai',text:"No worries at all! We also have a free consultation if you'd like to chat it through first. Just head to our booking link whenever you're ready 😊",time:'09:40'},
+      {role:'ai',text:"Not a problem. We also offer a free consultation if you would like to discuss it first. Please head to our booking link whenever you are ready.",time:'09:40'},
     ]
   }
 };
