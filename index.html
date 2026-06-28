@@ -68,7 +68,7 @@ a{color:inherit;text-decoration:none}
 
 /* HERO */
 .hero{min-height:100vh;background:linear-gradient(145deg,var(--purple) 0%,#1e0b38 55%,#0e1a2e 100%);display:flex;align-items:center;padding:120px 0 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(217,169,78,0.07) 0%,transparent 70%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(217,169,78,0.07) 0%,transparent 70%);pointer-events:none}
 .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative}
 .hero-eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:8px}
 .hero-eyebrow::before{content:'';width:20px;height:1px;background:var(--gold)}
