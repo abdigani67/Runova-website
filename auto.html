@@ -286,7 +286,7 @@ a{color:inherit;text-decoration:none}
       <a href="/aesthetics">Aesthetics</a>
       <a href="/about.html">About</a>
       <a id="navDealer" href="#" target="_blank" rel="noopener">Dealer Login →</a>
-      <a id="navBook" href="#" class="nav-cta" data-calendly data-fallback="#book">Book a Demo</a>
+      <a id="navBook" href="/book?product=auto" class="nav-cta">Book a Demo</a>
     </div>
     <button class="nav-hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('show')">
       <span></span><span></span><span></span>
@@ -304,7 +304,7 @@ a{color:inherit;text-decoration:none}
         <h1>Your dealership.<br>Selling cars at <em>2am</em>.</h1>
         <p class="hero-sub">Runova Auto handles every WhatsApp and web enquiry for independent UK car dealers — books viewings, manages your stock, and never lets a lead go cold. 24 hours a day.</p>
         <div class="hero-actions">
-          <a href="#" class="btn-gold" data-calendly data-fallback="#book">Book a free demo</a>
+          <a href="/book?product=auto" class="btn-gold">Book a free demo</a>
         </div>
         <p class="hero-trustline">Built for independent dealers. No long contracts. Live within a week.</p>
         <div class="hero-trust">
@@ -508,7 +508,7 @@ a{color:inherit;text-decoration:none}
           <li>Leads pipeline portal</li>
           <li>Web enquiry form</li>
         </ul>
-        <a href="#" class="tier-cta" data-calendly data-fallback="#book">Get a quote →</a>
+        <a href="/book?product=auto" class="tier-cta">Get a quote →</a>
       </div>
       <div class="tier-card featured reveal">
         <span class="tier-tag">Growth</span>
@@ -520,7 +520,7 @@ a{color:inherit;text-decoration:none}
           <li>Web chat widget for your website</li>
           <li>Priority support</li>
         </ul>
-        <a href="#" class="tier-cta" data-calendly data-fallback="#book">Get a quote →</a>
+        <a href="/book?product=auto" class="tier-cta">Get a quote →</a>
       </div>
       <div class="tier-card reveal">
         <span class="tier-tag">Pro</span>
@@ -532,7 +532,7 @@ a{color:inherit;text-decoration:none}
           <li>Monthly strategy call</li>
           <li>Unlimited stock</li>
         </ul>
-        <a href="#" class="tier-cta" data-calendly data-fallback="#book">Get a quote →</a>
+        <a href="/book?product=auto" class="tier-cta">Get a quote →</a>
       </div>
     </div>
     <p class="tiers-note">First 3 dealer clients get setup fee waived. Currently 3 spots available.</p>
@@ -656,7 +656,7 @@ a{color:inherit;text-decoration:none}
       <div class="footer-col">
         <h4>Company</h4>
         <a href="/about.html">About</a>
-        <a href="#book">Book a Demo</a>
+        <a href="/book?product=auto">Book a Demo</a>
         <a href="mailto:runova.ai3@gmail.com">Contact</a>
       </div>
       <div class="footer-col">
@@ -706,30 +706,13 @@ a{color:inherit;text-decoration:none}
 <script>
 const BOOKING_WEBHOOK='https://hook.eu1.make.com/l58ee7r635b48d1gqn1y8147qvk02rhe';
 
-// ── Placeholder URLs — fill in once live ────────────────────────────────
-const CALENDLY_URL = "";
+// ── Placeholder URL — fill in once live ─────────────────────────────────
 const PORTAL_URL   = "";
 
 // Dealer Login: link to the portal if set, otherwise hide it (never a dead link)
 (function(){
   const dealer=document.getElementById('navDealer');
   if(dealer){if(PORTAL_URL){dealer.setAttribute('href',PORTAL_URL);}else{dealer.style.display='none';}}
-})();
-
-// Guard every Calendly CTA: use the URL if set, otherwise fall back to the
-// on-page demo form so the button is never dead.
-(function(){
-  document.querySelectorAll('[data-calendly]').forEach(function(el){
-    if(CALENDLY_URL){
-      el.setAttribute('href',CALENDLY_URL);
-      el.setAttribute('target','_blank');
-      el.setAttribute('rel','noopener');
-    }else{
-      var fb=el.getAttribute('data-fallback');
-      if(fb){el.setAttribute('href',fb);}
-      else{el.classList.add('btn-disabled');el.setAttribute('aria-disabled','true');el.setAttribute('title','Booking link coming soon');el.removeAttribute('href');}
-    }
-  });
 })();
 
 // Booking form — same submission logic as the aesthetics form, with product=auto

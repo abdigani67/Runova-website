@@ -202,7 +202,7 @@ a{color:inherit;text-decoration:none}
       <a href="/aesthetics">Aesthetics</a>
       <a href="/about.html">About</a>
       <a id="navDealer" href="#" target="_blank" rel="noopener">Dealer Login →</a>
-      <a id="navBook" href="#" class="nav-cta" data-calendly data-soon="Book a Demo">Book a Demo</a>
+      <a id="navBook" href="/book" class="nav-cta">Book a Demo</a>
     </div>
     <button class="nav-hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('show')">
       <span></span><span></span><span></span>
@@ -371,7 +371,7 @@ a{color:inherit;text-decoration:none}
     <div class="cta-card reveal">
       <h2 id="cta-title">Not sure which product fits your business?</h2>
       <p>Book a free 30-minute call. We'll tell you honestly whether we can help and exactly what we'd build.</p>
-      <a href="#" class="btn-gold" data-calendly data-soon="Book a free call">Book a free call</a>
+      <a href="/book" class="btn-gold">Book a free call</a>
       <p class="cta-note">No pitch. No pressure. Just a straight answer.</p>
     </div>
   </div>
@@ -394,7 +394,7 @@ a{color:inherit;text-decoration:none}
       <div class="footer-col">
         <h4>Company</h4>
         <a href="/about.html">About</a>
-        <a href="#" data-calendly data-soon="Book a Demo">Book a Demo</a>
+        <a href="/book">Book a Demo</a>
         <a href="mailto:runova.ai3@gmail.com">Contact</a>
       </div>
       <div class="footer-col">
@@ -442,30 +442,13 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <script>
-// ── Placeholder URLs — fill in once live ────────────────────────────────
-const CALENDLY_URL = "";
+// ── Placeholder URL — fill in once live ─────────────────────────────────
 const PORTAL_URL   = "";
 
 // Dealer Login: link to the portal if set, otherwise hide it (never a dead link)
 (function(){
   const dealer=document.getElementById('navDealer');
   if(dealer){if(PORTAL_URL){dealer.setAttribute('href',PORTAL_URL);}else{dealer.style.display='none';}}
-})();
-
-// Guard every Calendly CTA: link it if the URL is set, otherwise disable it
-(function(){
-  document.querySelectorAll('[data-calendly]').forEach(function(el){
-    if(CALENDLY_URL){
-      el.setAttribute('href',CALENDLY_URL);
-      el.setAttribute('target','_blank');
-      el.setAttribute('rel','noopener');
-    }else{
-      el.classList.add('btn-disabled');
-      el.setAttribute('aria-disabled','true');
-      el.setAttribute('title','Booking link coming soon');
-      el.removeAttribute('href');
-    }
-  });
 })();
 
 // Modals

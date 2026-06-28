@@ -6,10 +6,10 @@
 <title>Runova — AI Instagram Receptionist for Aesthetics Clinics</title>
 <meta name="description" content="Runova answers every Instagram DM for your aesthetics clinic in seconds, quoting real prices, sending your booking link, and scoring leads automatically. UK based. ICO registered.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://runova.agency/">
+<link rel="canonical" href="https://runova.agency/aesthetics">
 <meta property="og:title" content="Runova — AI Instagram Receptionist for Aesthetics Clinics">
 <meta property="og:description" content="Never miss another Instagram enquiry. Runova replies in seconds, 24/7, in your clinic's own voice. Free 2-week trial.">
-<meta property="og:url" content="https://runova.agency/">
+<meta property="og:url" content="https://runova.agency/aesthetics">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://runova.agency/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -424,7 +424,7 @@ a{color:inherit;text-decoration:none}
       <a href="/aesthetics" class="active">Aesthetics</a>
       <a href="/about.html">About</a>
       <a id="navDealer" href="#" target="_blank" rel="noopener">Dealer Login →</a>
-      <a href="#book" class="nav-cta">Book a Demo</a>
+      <a href="/book?product=aesthetics" class="nav-cta">Book a Demo</a>
     </div>
     <button class="nav-hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('show')">
       <span></span><span></span><span></span>
@@ -442,7 +442,7 @@ a{color:inherit;text-decoration:none}
         <h1>The receptionist that<br>never misses a <em>DM</em>.</h1>
         <p class="hero-sub">Every Instagram enquiry answered in seconds, with your real prices, your booking link, and your clinic's tone. 24 hours a day, seven days a week.</p>
         <div class="hero-actions">
-          <a href="#book" class="btn-gold">Book a free demo</a>
+          <a href="/book?product=aesthetics" class="btn-gold">Book a free demo</a>
           <a href="/how-it-works.html" class="btn-ghost">See how it works</a>
         </div>
         <div class="hero-trust">
@@ -1147,8 +1147,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelec
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// ── Placeholder URLs — fill in once live ────────────────────────────────
-const CALENDLY_URL = "";
+// ── Placeholder URL — fill in once live ─────────────────────────────────
 const PORTAL_URL   = "";
 // Dealer Login: link to the portal if set, otherwise hide it (never a dead link)
 (function(){
