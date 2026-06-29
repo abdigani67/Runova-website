@@ -190,18 +190,6 @@ a{color:inherit;text-decoration:none}
 @media(max-width:480px){
   .footer-grid{grid-template-columns:1fr}
 }
-/* shared footer + legal modal (multi-product rollout) */
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.footer-bottom p,.footer-bottom a,.footer-bottom span{font-size:13px;color:rgba(247,243,236,0.4)}
-.footer-bottom a:hover{color:var(--gold)}
-.footer-links{display:flex;gap:20px;align-items:center}
-.nav-links a.active{color:#f7f3ec}
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(22,7,38,0.8);z-index:999;align-items:center;justify-content:center;padding:20px}
-.modal-bg.open{display:flex}
-.modal-box{background:#fff;border-radius:16px;max-width:600px;width:100%;max-height:82vh;overflow-y:auto;padding:36px;position:relative}
-.modal-box h3{font-family:'DM Serif Display',serif;font-size:24px;margin-bottom:18px}
-.modal-box p,.modal-box li{font-size:14.5px;line-height:1.7;margin-bottom:12px;color:var(--purple)}
-.modal-close{position:absolute;top:20px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -210,11 +198,12 @@ a{color:inherit;text-decoration:none}
   <div class="nav-inner">
     <a href="/" class="nav-logo">Runova<span>.</span></a>
     <div class="nav-links" id="navLinks" onclick="this.classList.remove('show')">
-      <a href="/auto">Auto</a>
-      <a href="/aesthetics">Aesthetics</a>
-      <a href="/about">About</a>
-      <a id="navDealer" href="#" target="_blank" rel="noopener">Dealer Login →</a>
-      <a href="/book" class="nav-cta">Book a Demo</a>
+      <a href="/">Home</a>
+      <a href="/how-it-works.html">How it works</a>
+      <a href="/pricing.html">Investment</a>
+      <a href="/blog.html" class="active">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/#book" class="nav-cta">Book a demo</a>
     </div>
     <button class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('show')"><span></span><span></span><span></span></button>
   </div>
@@ -428,7 +417,7 @@ a{color:inherit;text-decoration:none}
 
     <hr>
 
-    <p style="font-size:15px;color:var(--muted)"><strong>Runova</strong> is an AI Instagram receptionist for UK aesthetics clinics, built and based in Bristol. <a href="/book?product=aesthetics">Book a free demo</a> to see it live on your clinic's account.</p>
+    <p style="font-size:15px;color:var(--muted)"><strong>Runova</strong> is an AI Instagram receptionist for UK aesthetics clinics, built and based in Bristol. <a href="/#book">Book a free demo</a> to see it live on your clinic's account.</p>
 
   </article>
 
@@ -437,7 +426,7 @@ a{color:inherit;text-decoration:none}
     <div class="sidebar-card">
       <h4>Try it free for two weeks</h4>
       <p>See exactly what you're missing from your Instagram inbox. No commitment, no contract, setup done for you.</p>
-      <a href="/book?product=aesthetics" class="btn-gold">Book a free demo</a>
+      <a href="/#book" class="btn-gold">Book a free demo</a>
     </div>
     <div class="sidebar-toc">
       <h4>In this article</h4>
@@ -499,7 +488,7 @@ a{color:inherit;text-decoration:none}
     <div class="reveal">
       <h2>See it live on your<br><em>own Instagram</em>.</h2>
       <p>Free two-week trial. Setup done for you. No commitment until you've seen the results.</p>
-      <a href="/book?product=aesthetics" class="btn-gold">Book a free demo</a>
+      <a href="/#book" class="btn-gold">Book a free demo</a>
     </div>
   </div>
 </section>
@@ -507,51 +496,14 @@ a{color:inherit;text-decoration:none}
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div class="footer-brand"><div class="logo">Runova<span>.</span></div><p>AI automation for UK businesses. Built to recover the revenue you're missing.</p></div>
-      <div class="footer-col"><h4>Products</h4><a href="/auto">Auto</a><a href="/aesthetics">Aesthetics</a></div>
-      <div class="footer-col"><h4>Company</h4><a href="/about">About</a><a href="/book">Book a Demo</a><a href="mailto:runova.ai3@gmail.com">Contact</a></div>
-      <div class="footer-col"><h4>Legal</h4><a href="#" onclick="openModal('privacyModal');return false">Privacy Policy</a><a href="#" onclick="openModal('termsModal');return false">Terms &amp; Conditions</a><a href="https://runova-dpa.tiiny.site" target="_blank" rel="noopener">Data Processing Agreement</a></div>
+      <div class="footer-brand"><div class="logo">Runova<span>.</span></div><p>AI Instagram receptionist for UK aesthetics clinics.</p></div>
+      <div class="footer-col"><h4>Product</h4><a href="/how-it-works.html">How it works</a><a href="/pricing.html">Investment</a><a href="/#book">Book a demo</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="mailto:runova.ai3@gmail.com">Contact</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="https://runova-dpa.tiiny.site" target="_blank">DPA</a><a href="/">Privacy</a><a href="/">Terms</a></div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Runova, a trading name of Mr Abdigani Mohamed. ICO registered. Bristol, UK.</p>
-      <div class="footer-links"><span>Trading as Runova — Bristol, UK</span><a href="mailto:runova.ai3@gmail.com">runova.ai3@gmail.com</a></div>
-    </div>
+    <div class="footer-bottom"><p>© 2026 Runova, Mr Abdigani Mohamed. ICO registered. Bristol, UK.</p></div>
   </div>
 </footer>
-
-<!-- LEGAL MODALS -->
-<div class="modal-bg" id="termsModal" role="dialog" aria-modal="true" aria-label="Terms and Conditions" onclick="if(event.target===this)closeModal('termsModal')">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('termsModal')" aria-label="Close">✕</button>
-    <h3>Terms &amp; Conditions</h3>
-    <p>These terms govern the supply of services by Runova, a trading name of Mr Abdigani Mohamed ("Runova", "we", "us"), to your business ("the Client", "you"). By booking a setup or using our services, you agree to these terms.</p>
-    <p><strong>Services.</strong> Runova provides AI automation services for UK businesses, including AI assistants that reply to incoming enquiries on your behalf, using information you supply about your products, services, and pricing.</p>
-    <p><strong>Trial period.</strong> We may offer a free trial. After the trial, continued use is subject to the agreed monthly fee. We reserve the right to end the trial early if misuse is detected.</p>
-    <p><strong>Your obligations.</strong> You are responsible for ensuring the information you provide (products, prices, booking links) is accurate and up to date. You must have the legal right to operate your business and accept bookings through the means provided.</p>
-    <p><strong>Data.</strong> You remain the data controller for your customers' data. Runova acts as a data processor. A separate Data Processing Agreement governs this relationship.</p>
-    <p><strong>Liability.</strong> The service is provided on a reasonable-efforts basis. To the fullest extent permitted by law, our total liability to you in any 12-month period is limited to the fees you paid us in that period.</p>
-    <p>Questions: <a href="mailto:runova.ai3@gmail.com" style="color:var(--gold-soft)">runova.ai3@gmail.com</a>. Governed by the laws of England and Wales.</p>
-  </div>
-</div>
-<div class="modal-bg" id="privacyModal" role="dialog" aria-modal="true" aria-label="Privacy Policy" onclick="if(event.target===this)closeModal('privacyModal')">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('privacyModal')" aria-label="Close">✕</button>
-    <h3>Privacy Policy</h3>
-    <p>Runova (trading name of Mr Abdigani Mohamed) is registered with the UK Information Commissioner's Office (ICO).</p>
-    <p><strong>What we collect.</strong> When you book a demo, we collect your name, business name, email, and phone number. When your business uses Runova, we process the messages sent to your accounts.</p>
-    <p><strong>How we use it.</strong> Enquiry data is used to contact you about the service. Business data is used solely to operate the AI assistant. We never sell personal data.</p>
-    <p><strong>How we store it.</strong> Data is held in secure cloud infrastructure in the EU. Each client's data is fully isolated. Data is encrypted in transit and at rest.</p>
-    <p><strong>Retention.</strong> Enquiry data is held for 12 months. Active client data is held for the duration of your contract plus 30 days.</p>
-    <p><strong>Your rights.</strong> You have the right to access, correct, or delete your data at any time. Contact us at <a href="mailto:runova.ai3@gmail.com" style="color:var(--gold-soft)">runova.ai3@gmail.com</a>. If you are unsatisfied, you may complain to the ICO at ico.org.uk.</p>
-  </div>
-</div>
-<script>
-const PORTAL_URL = "";
-(function(){var d=document.getElementById('navDealer');if(d){if(PORTAL_URL){d.setAttribute('href',PORTAL_URL);}else{d.style.display='none';}}})();
-function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
-function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.modal-bg.open').forEach(function(m){m.classList.remove('open')});document.body.style.overflow=''}});
-</script>
 
 <script>
 // Scroll reveal
