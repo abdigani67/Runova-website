@@ -20,6 +20,8 @@ Make.com automation.
 
 The Supabase schema is **not** modified by this server — it only reads and writes existing tables.
 
+> **Setting it up or testing it?** Follow **[`SETUP.md`](./SETUP.md)** — a step-by-step runbook covering env vars, the three Meta values (App Secret vs Page token vs Verify token), running locally, wiring up a real Instagram test account, and deploying. This README is the reference; `SETUP.md` is the checklist.
+
 ## Live activity dashboard
 
 A lightweight, self-refreshing dashboard replaces the visibility you had in Make's
