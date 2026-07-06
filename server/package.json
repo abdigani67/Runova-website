@@ -1,0 +1,19 @@
+{
+  "name": "runova-instagram-webhook",
+  "version": "1.0.0",
+  "description": "Instagram DM webhook server that replies with an AI receptionist (Anthropic) per clinic.",
+  "main": "index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@supabase/supabase-js": "^2.45.4",
+    "express": "^4.21.0"
+  }
+}
