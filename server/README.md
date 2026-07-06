@@ -20,6 +20,20 @@ Make.com automation.
 
 The Supabase schema is **not** modified by this server — it only reads and writes existing tables.
 
+## Live activity dashboard
+
+A lightweight, self-refreshing dashboard replaces the visibility you had in Make's
+run history. It shows recent leads (with hot / warm / cold scoring) and a live
+message feed, read straight from Supabase.
+
+- **URL:** `GET /dashboard?token=<DASHBOARD_TOKEN>`
+- Set `DASHBOARD_TOKEN` to a secret string to enable it. Leave it unset to disable
+  the route entirely (returns `503`). A wrong or missing token returns `401`.
+- It exposes customer conversation data, so treat the token like a password and
+  only share the URL with staff. (For production, consider putting it behind proper
+  auth or an allowlist — the token is basic protection, not full access control.)
+- The page auto-refreshes every 20 seconds. It's read-only.
+
 ## File structure
 
 ```
@@ -32,6 +46,7 @@ server/
 │   ├── meta.js              Signature verification + send reply (Graph API)
 │   ├── leads.js             Lead upsert + scoring
 │   ├── conversations.js     History fetch, message save, dedup
+│   ├── dashboard.js         Token-gated live activity dashboard
 │   └── supabase.js          Shared Supabase service-role client
 ├── .env.example
 ├── railway.json
@@ -64,6 +79,7 @@ Put these in `.env` locally, and set them as Railway variables in production:
 | `ANTHROPIC_API_KEY`         | Your Anthropic API key (`sk-ant-...`). |
 | `META_APP_SECRET`           | App Secret from the Meta app dashboard (App Settings → Basic). Used to verify webhook signatures. |
 | `VERIFY_TOKEN`              | Any string **you choose** (e.g. a random 32-char value). You'll enter the same value in Meta's webhook setup. |
+| `DASHBOARD_TOKEN`           | Optional. A secret that gates the `/dashboard` activity page. Unset = dashboard disabled. |
 | `PORT`                      | Optional. Railway sets this automatically; defaults to `3000`. |
 
 ## Deploy to Railway

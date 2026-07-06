@@ -3,6 +3,7 @@
 const express = require('express');
 const { verifySignature } = require('./src/meta');
 const { handleWebhookEvent } = require('./src/webhook');
+const { handleDashboard } = require('./src/dashboard');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +22,14 @@ app.use(
 // Health check (useful for Railway and uptime monitors).
 app.get('/', (_req, res) => {
   res.status(200).send('Runova Instagram webhook server is running.');
+});
+
+// Token-gated live activity dashboard: GET /dashboard?token=<DASHBOARD_TOKEN>
+app.get('/dashboard', (req, res) => {
+  handleDashboard(req, res).catch((err) => {
+    console.error('[dashboard] handler error:', err);
+    res.sendStatus(500);
+  });
 });
 
 // --- Meta webhook verification (GET) ---
