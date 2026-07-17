@@ -251,6 +251,26 @@ a{color:inherit;text-decoration:none}
 .dmk-tx-faq strong{color:#4a4050}
 .dmk-tx-contra{font-size:11px;color:#c0392b;display:flex;align-items:flex-start;gap:4px;line-height:1.5}
 
+/* ── CAMPAIGNS ── */
+.dmk-camp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.dmk-camp-card{background:#fff;border-radius:12px;padding:16px;border:1px solid #e8e0d8;display:flex;flex-direction:column;gap:10px}
+.dmk-camp-card.feat{border-color:rgba(217,169,78,0.5);box-shadow:0 2px 14px rgba(217,169,78,0.14)}
+.dmk-camp-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.dmk-camp-name{font-size:13.5px;font-weight:700;color:#160726;line-height:1.3}
+.dmk-camp-status{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.dmk-camp-status.on{background:#e0f5ea;color:#1a6e40}
+.dmk-camp-status.off{background:#efeae2;color:#8a7f72}
+.dmk-camp-status .sd{width:6px;height:6px;border-radius:50%;background:currentColor}
+.dmk-camp-kws{display:flex;flex-wrap:wrap;gap:6px}
+.dmk-camp-kw{font-family:monospace;font-size:11px;font-weight:700;letter-spacing:.01em;color:#27104a;background:#efe7fb;padding:3px 9px;border-radius:6px}
+.dmk-camp-desc{font-size:11.5px;color:#6b6070;line-height:1.55}
+.dmk-camp-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:2px}
+.dmk-camp-mode{font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:20px}
+.dmk-camp-mode.ai{background:#f0e8fa;color:#5a3a9e}
+.dmk-camp-mode.fixed{background:#e0edfa;color:#1a5a94}
+.dmk-camp-trig{font-size:11.5px;color:#8a7f72}
+.dmk-camp-trig b{color:#160726;font-weight:700}
+
 @media(max-width:900px){
   .dash-mock{height:auto;max-height:none;flex-direction:column}
   .dmk-sidebar{width:100%;flex-direction:row;padding:12px 16px;align-items:center;gap:8px;overflow-x:auto;height:auto}
@@ -264,6 +284,7 @@ a{color:inherit;text-decoration:none}
   .dmk-hero-row,.dmk-metrics-row,.dmk-bottom-row{grid-template-columns:1fr}
   .dmk-content{padding:12px}
   .dmk-treatments-grid{grid-template-columns:1fr}
+  .dmk-camp-grid{grid-template-columns:1fr}
   .dmk-conv-layout{grid-template-columns:1fr}
   .dmk-conv-list{display:none}
   .dmk-table-head{display:none}
@@ -526,6 +547,7 @@ a{color:inherit;text-decoration:none}
         <div class="dmk-nav-item" onclick="dmkTab('leads',this)"><span class="ni">👤</span> Leads</div>
         <div class="dmk-nav-item" onclick="dmkTab('conversations',this)"><span class="ni">💬</span> Conversations</div>
         <div class="dmk-nav-item" onclick="dmkTab('treatments',this)"><span class="ni">♡</span> Treatments</div>
+        <div class="dmk-nav-item" onclick="dmkTab('campaigns',this)"><span class="ni">📣</span> Campaigns</div>
         <div class="dmk-sb-footer">
           <div class="dmk-clinic-name">Nova Aesthetics</div>
           <div class="dmk-live-row"><div class="dmk-live-dot"></div><span class="dmk-live-txt">Live</span></div>
@@ -755,6 +777,60 @@ a{color:inherit;text-decoration:none}
             </div>
           </div>
 
+          <!-- ── CAMPAIGNS PANEL ── -->
+          <div class="dmk-panel" id="panel-campaigns">
+            <div class="dmk-camp-grid">
+              <div class="dmk-camp-card feat">
+                <div class="dmk-camp-hd">
+                  <div class="dmk-camp-name">Glow Promo, 20% Off</div>
+                  <span class="dmk-camp-status on"><span class="sd"></span>Active</span>
+                </div>
+                <div class="dmk-camp-kws"><span class="dmk-camp-kw">DM "GLOW"</span></div>
+                <div class="dmk-camp-desc">Story promo: "DM GLOW for 20% off this month." The AI sends the offer the second the keyword lands and logs a fresh lead.</div>
+                <div class="dmk-camp-meta">
+                  <span class="dmk-camp-mode ai">AI-written reply</span>
+                  <span class="dmk-camp-trig"><b>24</b> triggered this month</span>
+                </div>
+              </div>
+              <div class="dmk-camp-card">
+                <div class="dmk-camp-hd">
+                  <div class="dmk-camp-name">VIP Waitlist</div>
+                  <span class="dmk-camp-status on"><span class="sd"></span>Active</span>
+                </div>
+                <div class="dmk-camp-kws"><span class="dmk-camp-kw">DM "VIP"</span></div>
+                <div class="dmk-camp-desc">A fixed reply that adds the sender to your priority list and sends your booking link straight away.</div>
+                <div class="dmk-camp-meta">
+                  <span class="dmk-camp-mode fixed">Fixed reply</span>
+                  <span class="dmk-camp-trig"><b>11</b> triggered this month</span>
+                </div>
+              </div>
+              <div class="dmk-camp-card">
+                <div class="dmk-camp-hd">
+                  <div class="dmk-camp-name">Summer Skin Refresh</div>
+                  <span class="dmk-camp-status off"><span class="sd"></span>Paused</span>
+                </div>
+                <div class="dmk-camp-kws"><span class="dmk-camp-kw">DM "SUMMER"</span><span class="dmk-camp-kw">DM "GLOWUP"</span></div>
+                <div class="dmk-camp-desc">Seasonal skin-booster promo. Switch it back on with one tap whenever you are ready to run it again.</div>
+                <div class="dmk-camp-meta">
+                  <span class="dmk-camp-mode ai">AI-written reply</span>
+                  <span class="dmk-camp-trig"><b>8</b> triggered last run</span>
+                </div>
+              </div>
+              <div class="dmk-camp-card">
+                <div class="dmk-camp-hd">
+                  <div class="dmk-camp-name">New Year, New You</div>
+                  <span class="dmk-camp-status off"><span class="sd"></span>Paused</span>
+                </div>
+                <div class="dmk-camp-kws"><span class="dmk-camp-kw">DM "NEWYEAR"</span></div>
+                <div class="dmk-camp-desc">A January consultation offer, built and scheduled ahead of time so it is ready the moment you launch.</div>
+                <div class="dmk-camp-meta">
+                  <span class="dmk-camp-mode fixed">Fixed reply</span>
+                  <span class="dmk-camp-trig"><b>0</b> not run yet</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div><!-- /dmk-content -->
       </div><!-- /dmk-main -->
     </div><!-- /dash-mock -->
@@ -791,6 +867,11 @@ a{color:inherit;text-decoration:none}
       <div class="feat-card reveal"><div class="feat-icon">🗣️</div><h3>Your clinic's voice</h3><p>Tuned to your tone: warm, professional, or playful. Sounds like your best receptionist, not a bot.</p></div>
       <div class="feat-card reveal"><div class="feat-icon">📅</div><h3>Booking link automation</h3><p>Sends your booking link at the perfect moment and confirms the team will follow up.</p></div>
       <div class="feat-card reveal"><div class="feat-icon">📈</div><h3>Live pipeline dashboard</h3><p>See every enquiry, lead stage, and estimated value in real time. Your whole funnel, in one view.</p></div>
+      <div class="feat-card reveal" style="grid-column:1/-1;border-color:rgba(217,169,78,0.5);background:linear-gradient(135deg,#ffffff 0%,#fdf6e9 100%)">
+        <div class="feat-icon">📣</div>
+        <h3>Keyword campaigns, from story to booking</h3>
+        <p>Post a story that says "DM GLOW for 20% off." The moment someone sends the keyword, Runova replies instantly with your offer, logs them as a lead, and follows up. Turn every story, reel and comment into booked appointments, on autopilot. Run it as a fixed message or let the AI write it in your clinic's voice.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1045,7 +1126,8 @@ const dmkTitles={
   overview:{title:'Nova Aesthetics',sub:"Here's how your AI receptionist is doing."},
   leads:{title:'Leads',sub:'Everyone who has messaged your clinic, scored and sorted.'},
   conversations:{title:'Conversations',sub:'Every chat your AI has handled, end to end.'},
-  treatments:{title:'Treatments',sub:'These are the treatments your AI quotes from. Update a price and the AI uses it on the very next message.'}
+  treatments:{title:'Treatments',sub:'These are the treatments your AI quotes from. Update a price and the AI uses it on the very next message.'},
+  campaigns:{title:'Campaigns',sub:'Keyword promos that turn story replies and comments into booked leads, automatically.'}
 };
 function dmkTab(id,el){
   document.querySelectorAll('.dmk-nav-item').forEach(n=>n.classList.remove('active'));
