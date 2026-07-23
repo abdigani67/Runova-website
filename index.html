@@ -8,7 +8,7 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://runova.agency/">
 <meta property="og:title" content="Runova — AI Instagram Receptionist for Aesthetics Clinics">
-<meta property="og:description" content="Never miss another Instagram enquiry. Runova replies in seconds, 24/7, in your clinic's own voice. Free 2-week trial.">
+<meta property="og:description" content="Never miss another Instagram enquiry. Runova replies in seconds, 24/7, in your clinic's own voice. Free 1-month trial.">
 <meta property="og:url" content="https://runova.agency/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://runova.agency/og-image.jpg">
@@ -50,6 +50,8 @@ a{color:inherit;text-decoration:none}
 .nav-links a:hover{color:#f7f3ec}
 .nav-cta{background:var(--gold)!important;color:var(--purple)!important;padding:9px 22px;border-radius:8px;font-weight:700;font-size:14px!important;transition:background var(--transition),transform var(--transition)!important}
 .nav-cta:hover{background:#e8b84e!important;transform:translateY(-1px)}
+.nav-login{border:1px solid rgba(217,169,78,0.4);padding:8px 18px;border-radius:8px;color:var(--gold-soft)!important;font-weight:600!important;transition:border-color var(--transition),color var(--transition)}
+.nav-login:hover{border-color:var(--gold);color:#f7f3ec!important}
 .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
 .nav-hamburger span{width:22px;height:2px;background:#f7f3ec;border-radius:2px;display:block;transition:var(--transition)}
 @media(max-width:720px){
@@ -89,6 +91,8 @@ a{color:inherit;text-decoration:none}
 .demo-card-footer{padding:12px 20px;border-top:1px solid rgba(247,243,236,0.06)}
 .demo-footer-note{font-size:11.5px;color:rgba(247,243,236,0.35);text-align:center}
 .demo-body{padding:20px;min-height:300px}
+.hero-video{width:100%;max-width:380px;display:block;margin:0 auto;border-radius:26px;border:1px solid rgba(217,169,78,0.22);box-shadow:0 40px 90px rgba(0,0,0,0.55);background:#160a2b}
+@media(max-width:900px){.hero-video{max-width:340px}}
 .dm-msg{display:flex;gap:8px;margin-bottom:14px;align-items:flex-end}
 .dm-msg.ai{justify-content:flex-end}
 .dm-bubble{max-width:75%;padding:11px 15px;border-radius:16px;font-size:14px;line-height:1.5}
@@ -444,6 +448,7 @@ a{color:inherit;text-decoration:none}
       <a href="/pricing.html">Investment</a>
       <a href="/blog.html">Blog</a>
       <a href="/about.html">About</a>
+      <a href="https://runova-admin.com" class="nav-login">Log in</a>
       <a href="#book" class="nav-cta">Book a demo</a>
     </div>
     <button class="nav-hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('show')">
@@ -466,28 +471,18 @@ a{color:inherit;text-decoration:none}
           <a href="/how-it-works.html" class="btn-ghost">See how it works</a>
         </div>
         <div class="hero-trust">
-          <span>Free 2-week trial</span>
+          <span>Free 1-month trial</span>
           <span>No contract</span>
           <span>ICO registered</span>
           <span>UK-based</span>
         </div>
       </div>
       <div class="hero-demo">
-        <div class="demo-card" role="region" aria-label="Live DM demo">
-          <div class="demo-card-header">
-            <div class="demo-ig-bar">
-              <div class="demo-ig-left">
-                <div class="demo-ig-avatar"></div>
-                <div>
-                  <div class="demo-ig-name">Nova Aesthetics</div>
-                  <div class="demo-ig-sub">Instagram DM</div>
-                </div>
-              </div>
-              <div class="demo-live-pill"><span class="dot"></span>Replying live</div>
-            </div>
-          </div>
-          <div class="demo-body" id="dmBody"></div>
-        </div>
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+               poster="/assets/runova-demo-poster.jpg"
+               aria-label="Runova answering an Instagram enquiry in seconds, scoring the lead, and handing a clinical question to the clinic's staff.">
+          <source src="/assets/runova-demo.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </div>
@@ -884,15 +879,15 @@ a{color:inherit;text-decoration:none}
         <div class="sec-eyebrow" style="color:rgba(217,169,78,0.85)">Investment</div>
         <h2 class="sec-title" id="invest-title" style="color:#f7f3ec;max-width:14em">Every clinic is different. So is every package.</h2>
         <p style="font-size:17px;color:rgba(247,243,236,0.65);line-height:1.7;max-width:400px;margin-bottom:28px">We take the time to understand your clinic, your treatments, your busiest times, and your goals. Then we build a setup that fits. No rigid tiers. No paying for features you do not need.</p>
-        <p style="font-size:17px;color:rgba(247,243,236,0.65);line-height:1.7;max-width:400px;margin-bottom:36px">Every clinic is at a different stage, handles different volumes, and has different goals. We put together a package that fits yours, starting with a free two-week trial so you can see exactly what you are getting before any money changes hands.</p>
+        <p style="font-size:17px;color:rgba(247,243,236,0.65);line-height:1.7;max-width:400px;margin-bottom:36px">Every clinic is at a different stage, handles different volumes, and has different goals. We put together a package that fits yours, starting with a free one-month trial so you can see exactly what you are getting before any money changes hands.</p>
         <a href="#book" class="btn-gold">Book a call to discuss your needs</a>
         <p style="font-size:13px;color:rgba(247,243,236,0.4);margin-top:14px">No commitment. No contract. Trial first.</p>
       </div>
       <div class="invest-right">
         <div class="invest-card reveal">
           <div class="ic-icon">🗓️</div>
-          <h3>Free two-week trial</h3>
-          <p>We set everything up on your clinic's Instagram and run it live for two weeks. You watch the enquiries come in, scored and tracked, before paying a penny.</p>
+          <h3>Free one-month trial</h3>
+          <p>We set everything up on your clinic's Instagram and run it live for a month. You watch the enquiries come in, scored and tracked, before paying a penny.</p>
         </div>
         <div class="invest-card reveal">
           <div class="ic-icon">🎯</div>
@@ -1026,7 +1021,7 @@ a{color:inherit;text-decoration:none}
     <h3>Terms &amp; Conditions</h3>
     <p>These terms govern the supply of services by Runova, a trading name of Mr Abdigani Mohamed ("Runova", "we", "us"), to your business ("the Client", "you"). By booking a setup or using our services, you agree to these terms.</p>
     <p><strong>Services.</strong> Runova provides an AI-powered Instagram DM receptionist service for aesthetics clinics. The service replies to incoming Instagram DMs on behalf of your clinic, using information you supply about your treatments and pricing.</p>
-    <p><strong>Trial period.</strong> We may offer a free trial of up to 14 days. After the trial, continued use is subject to the agreed monthly fee. We reserve the right to end the trial early if misuse is detected.</p>
+    <p><strong>Trial period.</strong> We may offer a free trial of up to one month. After the trial, continued use is subject to the agreed monthly fee. We reserve the right to end the trial early if misuse is detected.</p>
     <p><strong>Your obligations.</strong> You are responsible for ensuring the information you provide (treatments, prices, booking links) is accurate and up to date. You must have the legal right to operate the clinic and accept bookings through the means provided.</p>
     <p><strong>Data.</strong> You remain the data controller for your patients' data. Runova acts as a data processor. A separate Data Processing Agreement governs this relationship.</p>
     <p><strong>Liability.</strong> The service is provided on a reasonable-efforts basis. To the fullest extent permitted by law, our total liability to you in any 12-month period is limited to the fees you paid us in that period.</p>
@@ -1049,77 +1044,6 @@ a{color:inherit;text-decoration:none}
 
 <script>
 const BOOKING_WEBHOOK='https://hook.eu1.make.com/l58ee7r635b48d1gqn1y8147qvk02rhe';
-
-// ── Customer view: looping DM demo ──────────────────────────────────────
-const DMS=[
-  {role:'user',  text:'Hi, how much are lip fillers?'},
-  {role:'ai',    text:'Hey! Lip fillers start from £180. They usually take about 30 minutes and look amazing. Want me to send you the booking link? 💋', delay:1400},
-  {role:'user',  text:'Yes please! Do you have anything this week?', delay:2200},
-  {role:'ai',    text:'Head to bookings.novaesthetics.co.uk and the team will confirm your slot. They\'re usually pretty flexible 😊', delay:1600},
-];
-
-let dmTimeout=null;
-
-function startDMLoop(){
-  const b=document.getElementById('dmBody');
-  if(!b)return;
-  b.innerHTML='';           // clear any previous run
-  playDM(0);
-}
-
-function playDM(idx){
-  const b=document.getElementById('dmBody');
-  if(!b)return;
-
-  // All messages played - show a static note once, no restart
-  if(idx>=DMS.length){
-    dmTimeout=setTimeout(()=>{
-      const note=document.createElement('div');
-      note.className='demo-footer-note';
-      note.style.marginTop='8px';
-      note.textContent='Your AI receptionist handles this automatically, 24 hours a day.';
-      b.appendChild(note);
-      b.scrollTop=b.scrollHeight;
-    }, 1000);
-    return;
-  }
-
-  const m=DMS[idx];
-  const pauseBefore = idx===0 ? 800 : (m.delay||1000);
-
-  dmTimeout=setTimeout(()=>{
-    if(m.role==='ai'){
-      // Show typing indicator first
-      const t=document.createElement('div');
-      t.className='dm-msg';
-      t.innerHTML='<div class="dm-typing"><span></span><span></span><span></span></div>';
-      b.appendChild(t);
-      b.scrollTop=b.scrollHeight;
-      dmTimeout=setTimeout(()=>{
-        t.remove();
-        addDM(m);
-        playDM(idx+1);
-      }, m.delay||1200);
-    } else {
-      addDM(m);
-      playDM(idx+1);
-    }
-  }, pauseBefore);
-}
-
-function addDM(m){
-  const b=document.getElementById('dmBody');
-  if(!b)return;
-  const d=document.createElement('div');
-  d.className='dm-msg '+(m.role==='ai'?'ai':'user');
-  const label=m.role==='ai'?'AI Receptionist':'Customer';
-  d.innerHTML=`<div><div class="dm-label">${label}</div><div class="dm-bubble">${m.text}</div></div>`;
-  b.appendChild(d);
-  b.scrollTop=b.scrollHeight;
-}
-
-// Start on load
-setTimeout(startDMLoop, 600);
 
 // ── Dashboard tab switcher ──────────────────────────────────────────────
 const dmkTitles={
